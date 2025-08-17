@@ -1,0 +1,46 @@
+# requirements.txt
+redisvl>=0.3.0
+redis>=4.5.0
+sentence-transformers>=2.2.0
+torch>=1.12.0
+transformers>=4.21.0
+numpy>=1.21.0
+
+# setup.py (optional - for development installation)
+from setuptools import setup, find_packages
+
+setup(
+    name="semantic-router-app",
+    version="1.0.0",
+    description="Semantic Router Application using RedisVL",
+    packages=find_packages(),
+    install_requires=[
+        "redisvl>=0.3.0",
+        "redis>=4.5.0",
+        "sentence-transformers>=2.2.0",
+        "torch>=1.12.0",
+        "transformers>=4.21.0",
+        "numpy>=1.21.0",
+    ],
+    python_requires=">=3.9",
+)
+
+# install.sh - Installation script
+#!/bin/bash
+echo "🚀 Installing Semantic Router Application"
+echo "======================================="
+
+# Create virtual environment
+python3 -m venv semantic_router_env
+source semantic_router_env/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install requirements
+pip install -r requirements.txt
+
+echo "✅ Installation complete!"
+echo "To run the application:"
+echo "  1. Activate environment: source semantic_router_env/bin/activate"
+echo "  2. Run: python semantic_router_app.py"
