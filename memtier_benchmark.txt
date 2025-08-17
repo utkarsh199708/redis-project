@@ -1,0 +1,8 @@
+memtier_benchmark -s redis-12000.localhost -p 12000 \
+  --ratio 1:0 \
+  --data-size 1000 \
+  --key-pattern R:R \
+  --requests 10000 \
+  --clients 10 \
+  --threads 2 \
+  --pipeline 10
