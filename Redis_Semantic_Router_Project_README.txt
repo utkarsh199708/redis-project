@@ -39,7 +39,7 @@ pip install redisvl sentence-transformers redis
 3. Start Redis Stack
 # Using Docker (recommended)
 docker run -d \
-  --name redis-stack \
+  --name redis-stack-server \
   -p 6379:6379 \
   -p 8001:8001 \
   redis/redis-stack:latest
@@ -57,7 +57,7 @@ python3 semanticrouting.py
 
 🏗️ Architecture
 System Components
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐│   User Query    │───▶│  Semantic Router │───▶│   Route Match   │
+┌────────User Query─────────┐Semantic Router    ┌───Route Match ───────────────┐
 └─────────────────┘    └──────────────────┘    └─────────────────┘
                               │
                               ▼
@@ -299,4 +299,5 @@ ________________
 
 
 Made with ❤️ by Utkarsh Jha
+
 Star ⭐ this repo if you found it useful!
