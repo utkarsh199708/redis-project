@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  redis-stack:
+    image: redis/redis-stack-server:latest
+    container_name: redis-stack
+    restart: unless-stopped
+    ports:
+      - "6379:6379"   # Redis Stack Server
+      - "8001:8001"   # RedisInsight (only in redis/redis-stack, not stack-server)
+    volumes:
+      - redis-stack-data:/data
+
+  redis-enterprise:
+    image: redislabs/redis
+    container_name: redis-enterprise
+    restart: unless-stopped
+    ports:
+      - "9443:9443"    # Enterprise Web UI
+      - "8080:8080"    # REST API
+      - "8070:8070"    # Cluster REST API
+      - "12000:12000"  # Example Enterprise DB port
+    environment:
+      - TZ=UTC
+    volumes:
+      - redis-enterprise-data:/var/opt/redislabs
+
+volumes:
+  redis-stack-data:
+  redis-enterprise-data:
